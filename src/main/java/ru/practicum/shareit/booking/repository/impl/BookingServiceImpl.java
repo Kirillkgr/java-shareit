@@ -1,29 +1,28 @@
 package ru.practicum.shareit.booking.repository.impl;
 
 import lombok.AccessLevel;
-import lombok.extern.slf4j.Slf4j;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+import ru.practicum.shareit.booking.dto.BookingDto;
+import ru.practicum.shareit.booking.dto.CreateBookingDto;
+import ru.practicum.shareit.booking.enums.BookingSearchState;
+import ru.practicum.shareit.booking.enums.BookingStatus;
+import ru.practicum.shareit.booking.interfaces.BookingService;
+import ru.practicum.shareit.booking.mapper.BookingMapper;
+import ru.practicum.shareit.booking.model.Booking;
+import ru.practicum.shareit.booking.repository.BookingRepository;
+import ru.practicum.shareit.exception.AccessDeniedException;
+import ru.practicum.shareit.exception.BookingException;
+import ru.practicum.shareit.exception.NotFoundException;
+import ru.practicum.shareit.item.model.Item;
+import ru.practicum.shareit.item.repository.ItemService;
 import ru.practicum.shareit.user.interfaces.UserService;
 import ru.practicum.shareit.user.model.User;
-import ru.practicum.shareit.item.model.Item;
-import org.springframework.stereotype.Service;
-import ru.practicum.shareit.user.interfaces.UserRepository;
-import ru.practicum.shareit.booking.dto.BookingDto;
-import ru.practicum.shareit.booking.model.Booking;
-import ru.practicum.shareit.exception.BookingException;
-import ru.practicum.shareit.item.repository.ItemService;
-import ru.practicum.shareit.exception.NotFoundException;
-import ru.practicum.shareit.booking.enums.BookingStatus;
-import ru.practicum.shareit.booking.dto.CreateBookingDto;
-import ru.practicum.shareit.booking.mapper.BookingMapper;
-import ru.practicum.shareit.exception.AccessDeniedException;
-import ru.practicum.shareit.booking.enums.BookingSearchState;
-import ru.practicum.shareit.booking.interfaces.BookingService;
-import ru.practicum.shareit.booking.repository.BookingRepository;
 
-import java.util.Collection;
 import java.time.LocalDateTime;
+import java.util.Collection;
 
 /**
  * Реализация интерфейса BookingService.
