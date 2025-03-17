@@ -2,23 +2,19 @@ package ru.practicum.shareit.user.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
+@Builder
 @Data
-@Builder(toBuilder = true)
-@NoArgsConstructor
-@AllArgsConstructor
 public class UserDto {
-
     private Long id;
 
-    @NotBlank(message = "Электронная почта не может быть пустой")
-    @Email(message = "Электронная почта должна соответствовать шаблону name@domain.xx")
+    @NotBlank
+    private String name;
+
+    @Email (message = "Поле должно содержать знак @")
+    @NotBlank
     private String email;
 
-    @NotBlank(message = "Имя не может быть пустым")
-    private String name;
 }
